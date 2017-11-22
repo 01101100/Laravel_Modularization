@@ -101,13 +101,6 @@
         </nav>
 
         @yield('content')
-        <div class="content">
-            <div class="links">
-                <a href="/product">Products</a>
-                <a href="/search">Search</a>
-                <a href="/about">About</a>
-            </div>
-        </div>
     </div>
 
     <!-- Scripts -->
