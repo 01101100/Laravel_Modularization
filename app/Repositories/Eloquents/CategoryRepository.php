@@ -9,7 +9,7 @@
 
 namespace App\Repositories\Eloquents;
 
-use App\Modules\Product\Models\Category;
+use App\Modules\Category\Models\Category;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 
 class CategoryRepository extends EloquentRepository implements CategoryRepositoryInterface {

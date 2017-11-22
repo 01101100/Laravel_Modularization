@@ -22,16 +22,20 @@ Route::group(
 			"uses" => "{$module}Controller@index",
 		]);
 
-		Route::get('/{id}', [
-			"as"   => "{$module}.show",
-			"uses" => "{$module}Controller@show",
-		]);
-
 		Route::get('/create', [
 			"as" => "{$module}.create",
 			"uses" => "{$module}Controller@create",
 		]);
 
-		
+		Route::post('/', 'ProductController@store')->name('product.store'); //ok minh xem lai
+
+		Route::get('/permission', function(){
+			return view('Product::permission'); // dung roi day thay run di
+		})->name('permission');
+
+		Route::get('/{id}', [
+			"as"   => "{$module}.show",
+			"uses" => "{$module}Controller@show",
+		]);
 	}
 );

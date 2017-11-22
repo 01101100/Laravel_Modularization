@@ -47,7 +47,7 @@ class ProductController extends Controller {
 			$categories = $this->category->getAll();
 			return view('Product::create', ['categories' => $categories]);
 		} else {
-			return ;
+			return redirect('product/permission');
 		}
 	}
 
@@ -60,16 +60,17 @@ class ProductController extends Controller {
 	public function store(Request $request) {
 		//
 		if (Auth::check() && Auth::user()->role == 2) {
+			$category = $request->input('category');
 			$title = $request->input('inputTitle');
 			$actor = $request->input('inputActor');
 			$price = $request->input('inputPrice');
 
-			$product = ['category' => 1, 'title' => $title, 'actor' => $actor, 'price' => $price];
+			$product = ['category' => $category, 'title' => $title, 'actor' => $actor, 'price' => $price];
 
 			$result = $this->product->create($product);
 			return redirect('product/'.$result->prod_id);
 		} else {
-			return redirect('permission');
+			return redirect('product/permission');
 		}
 	}
 
