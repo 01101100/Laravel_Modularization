@@ -26,5 +26,12 @@ Route::group(
 			"as"   => "{$module}.show",
 			"uses" => "{$module}Controller@show",
 		]);
+
+		Route::get('/create', [
+			"as" => "{$module}.create",
+			"uses" => "{$module}Controller@create",
+		]);
+
+		
 	}
 );
