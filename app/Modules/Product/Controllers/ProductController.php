@@ -21,8 +21,8 @@ class ProductController extends Controller {
 	 * @param ProductRepositoryInterface $product [description]
 	 */
 	public function __construct(ProductRepositoryInterface $product,
-		CategoryRepositoryInterface $category) {
-		$this->product  = $product;
+								CategoryRepositoryInterface $category) {
+		$this->product = $product;
 		$this->category = $category;
 	}
 
@@ -81,8 +81,10 @@ class ProductController extends Controller {
 	 * @param  \App\Model\Product  $product
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(Product $product) {
-		//
+	public function edit($id) {
+		$prod = $this->product->find($id);
+		$categories = $this->category->getAll();
+		return view('Product::edit', ['product' => $prod, 'categories' => $categories]);
 	}
 
 	/**
@@ -92,8 +94,19 @@ class ProductController extends Controller {
 	 * @param  \App\Model\Product  $product
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Product $product) {
-		//
+	public function update(Request $request, $id) {
+		$this->validate($request, [
+		 	'title' => 'required',
+		 	'category' => 'required',
+		 	'actor' => 'required',
+		 	'price' => 'required|numeric',
+		 ]);
+		$prod = $this->product->find($id);
+		if($prod){
+			$prod->update($request->all());
+		}
+		$products = $this->product->getAll();
+		return view('Admin::index', ['products' => $products]);
 	}
 
 	/**
@@ -102,7 +115,10 @@ class ProductController extends Controller {
 	 * @param  \App\Model\Product  $product
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Product $product) {
-		//
+	public function destroy($id) {
+		$prod = $this->product->find($id);
+		$prod->delete();
+		$products = $this->product->getAll();
+		return view('Admin::index', ['products' => $products]);
 	}
 }

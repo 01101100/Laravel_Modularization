@@ -36,7 +36,10 @@
                 <td>{{ $prod->actor }}</td>
                 <td>{{ $prod->price }}</td>
                 <td>{{ $prod->special }}</td>
-                <td><a href=""><i class="fa fa-fw fa-pencil" aria-hidden="true"></i>Edit</a></td>
+                <td>
+                    <a href="{{ route('Product.edit', ['id' => $prod->prod_id]) }}"><i class="fa fa-fw fa-pencil" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ route('Product.delete', ['id' => $prod->prod_id]) }}"><i class="fa fa-fw fa-pencil" aria-hidden="true"></i>Delete</a>
+                </td>
             </tr>
         	@endforeach
         </tbody>

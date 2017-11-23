@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model {
 	protected $primaryKey = 'customer_id';
+  protected $fillable = [
+      'name', 'email', 'password', 'role',
+    ];
 
 	protected $fillable = [
         'customer_id',
