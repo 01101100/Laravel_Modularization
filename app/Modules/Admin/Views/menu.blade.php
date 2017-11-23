@@ -12,6 +12,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"><i class="fa fa-home" aria-hidden="true"></i></span></a></li>
                 <li><a href="users">User management<span style="font-size:16px;" class="pull-right hidden-xs showopacity"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span></a></li>
+                <li><a href="{{ route('Product.create')}}">Create new Product<span style="font-size:16px;" class="pull-right hidden-xs showopacity"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span></a></li>
                 {{-- <li class="dropdown">
                     <a href="users" class="dropdown-toggle" data-toggle="dropdown">User Management <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
