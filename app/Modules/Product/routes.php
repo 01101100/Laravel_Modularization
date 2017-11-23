@@ -6,7 +6,7 @@ $module    = basename(__DIR__);
 $namespace = "App\Modules\\{$module}\Controllers";
 
 Route::get('product/search', 'App\Modules\Search\Controllers\SearchController@searchProduct')
-	->name('Search.product');
+	->name('Search.product')->middleware(['web']);
 
 Route::group(
 	[
