@@ -38,5 +38,23 @@ Route::group(
 			"as"   => "{$module}.show",
 			"uses" => "{$module}Controller@show",
 		]);
+
+		Route::get('/{id}/edit', [
+			"middleware" => ['admin'],
+			"as" => "{$module}.edit",
+			"uses" => "{$module}Controller@edit",
+		]);
+
+		Route::post('/{id}/update', [
+			"middleware" => ['admin'],
+			"as" => "{$module}.update",
+			"uses" => "{$module}Controller@update",
+		]);
+
+		Route::get('/delete/{id}', [
+			"middleware" => ['admin'],
+			"as" => "{$module}.delete",
+			"uses" => "{$module}Controller@destroy",
+		]);
 	}
 );
