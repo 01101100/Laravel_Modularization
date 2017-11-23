@@ -14,6 +14,11 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model {
 	protected $primaryKey = 'customer_id';
 
+	protected $fillable = [
+        'customer_id',
+
+    ];
+    public $timestamps = false;
 	public function orders() {
 		return $this->hasMany('App\Modules\Order\Models\Order', 'customer_id', 'customer_id');
 	}
@@ -21,4 +26,5 @@ class Customer extends Model {
 	public function user() {
 		return $this->belongsTo('App\User', 'customer_id', 'id');
 	}
+
 }
