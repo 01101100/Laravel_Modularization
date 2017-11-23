@@ -3,26 +3,26 @@
 /**
  * @Author: longdragon
  * @Date:   2017-11-18 23:36:52
- * @Last Modified by:   longdragon
- * @Last Modified time: 2017-11-19 04:08:28
+ * @Last Modified by:   01101100
+ * @Last Modified time: 2017-11-23 13:04:54
  */
 namespace App\Modules\Product\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Modules\Product\Models\Product;
-use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller {
 	/**
 	 * [__construct description]
 	 * @param ProductRepositoryInterface $product [description]
 	 */
-	public function __construct(ProductRepositoryInterface $product, 
-								CategoryRepositoryInterface $category) {
-		$this->product = $product;
+	public function __construct(ProductRepositoryInterface $product,
+		CategoryRepositoryInterface $category) {
+		$this->product  = $product;
 		$this->category = $category;
 	}
 
@@ -42,13 +42,8 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		//
-		if (Auth::check() && Auth::user()->role == 2) {  // admin's role = 2
-			$categories = $this->category->getAll();
-			return view('Product::create', ['categories' => $categories]);
-		} else {
-			return redirect('product/permission');
-		}
+		$categories = $this->category->getAll();
+		return view('Product::create', ['categories' => $categories]);
 	}
 
 	/**
@@ -58,20 +53,15 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-		//
-		if (Auth::check() && Auth::user()->role == 2) {
-			$category = $request->input('category');
-			$title = $request->input('inputTitle');
-			$actor = $request->input('inputActor');
-			$price = $request->input('inputPrice');
+		$category = $request->input('category');
+		$title    = $request->input('inputTitle');
+		$actor    = $request->input('inputActor');
+		$price    = $request->input('inputPrice');
 
-			$product = ['category' => $category, 'title' => $title, 'actor' => $actor, 'price' => $price];
+		$product = ['category' => $category, 'title' => $title, 'actor' => $actor, 'price' => $price];
 
-			$result = $this->product->create($product);
-			return redirect('product/'.$result->prod_id);
-		} else {
-			return redirect('product/permission');
-		}
+		$result = $this->product->create($product);
+		return redirect('product/' . $result->prod_id);
 	}
 
 	/**

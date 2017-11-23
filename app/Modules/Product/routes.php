@@ -23,13 +23,14 @@ Route::group(
 		]);
 
 		Route::get('/create', [
-			"as" => "{$module}.create",
-			"uses" => "{$module}Controller@create",
+			"middleware" => ['admin'],
+			"as"         => "{$module}.create",
+			"uses"       => "{$module}Controller@create",
 		]);
 
-		Route::post('/', 'ProductController@store')->name('product.store'); //ok minh xem lai
+		Route::post('/', 'ProductController@store')->name('product.store')->middleware(['admin']); //ok minh xem lai
 
-		Route::get('/permission', function(){
+		Route::get('/permission', function () {
 			return view('Product::permission'); // dung roi day thay run di
 		})->name('permission');
 
