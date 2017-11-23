@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model {
 	protected $primaryKey = 'customer_id';
+  protected $fillable = [
+      'name', 'email', 'password', 'role',
+    ];
 
 	public function orders() {
 		return $this->hasMany('App\Modules\Order\Models\Order', 'customer_id', 'customer_id');
