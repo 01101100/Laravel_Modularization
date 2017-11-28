@@ -50,7 +50,10 @@ class Order extends Model {
 		}
 	}
 
-	public function next() {
+	public function next($flag = 0) {
+		if ($flag != 0) {
+			$this.save();
+		}
 		$this->stateI->next($this);
 	}
 
