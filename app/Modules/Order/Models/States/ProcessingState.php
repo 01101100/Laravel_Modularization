@@ -4,14 +4,14 @@
  * @Author: 01101100
  * @Date:   2017-11-28 23:03:38
  * @Last Modified by:   01101100
- * @Last Modified time: 2017-11-28 23:57:55
+ * @Last Modified time: 2017-11-29 00:13:45
  */
 
 namespace App\Modules\Order\Models\States;
 
-use App\Modules\Order\Models;
+use App\Modules\Order\Models\Order;
 
-class ProcessingState implements State {
+class ProcessingState implements StateInterface {
 
 	public function next(Order $order) {
 		$order->state = SHIPPING;

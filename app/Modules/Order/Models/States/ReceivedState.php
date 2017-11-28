@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 namespace App\Modules\Order\Models\States;
 
 use App\Modules\Order\Models;
 
-class ReceiveState implements State {
+class ReceiveState implements StateInterface {
 
-	public function next (Order $order) {
-		
+	public function next(Order $order) {
+
 	}
 
-	public function cancel (Order $order) {
-		
+	public function cancel(Order $order) {
+
 	}
 }
 ?>
