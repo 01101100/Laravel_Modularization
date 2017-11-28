@@ -3,19 +3,17 @@
 /**
  * @Author: longdragon
  * @Date:   2017-11-19 02:36:55
- * @Last Modified by:   longdragon
- * @Last Modified time: 2017-11-19 02:38:16
+ * @Last Modified by:   01101100
+ * @Last Modified time: 2017-11-28 23:49:28
  */
 
 namespace App\Modules\Order\Controllers;
-use App\Modules\Product\Models\Order;
-
-use Session;
-use Auth;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Repositories\Interfaces\OrderlineRepositoryInterface;
+use App\Modules\Order\Models\Order;
 use App\Repositories\Interfaces\OrderRepositoryInterface;
+use Auth;
+use Illuminate\Http\Request;
+use Session;
 
 class OrderController extends Controller {
 	/**
@@ -30,12 +28,11 @@ class OrderController extends Controller {
 		return view('Order::index');
 	}
 
-	public function order()
-    {
-        return view('Order::order');
-    }
+	public function order() {
+		return view('Order::order');
+	}
 
-    public function store(){
+	public function store() {
 		$cart = Session::get('cart');
 		$user = Auth::user();
 		//dd($cart->totalPrice);
@@ -45,7 +42,15 @@ class OrderController extends Controller {
 		// 	$orderline = array('order_id' => $currentOrder->order_id, 'prod_id' =>$item['product']->prod_id, 'quantity' => $item['qty']);
 		// 	$this->orderline->create($orderline);
 		// }
-		// 
+		//
 		return redirect()->back();
+	}
+
+	public function test() {
+		// $order = new Order();
+		$order = Order::find(1);
+		// dd($order);
+		$order->initState();
+		dd($order);
 	}
 }

@@ -5,7 +5,6 @@ $prefix = ""; // URL prefix
 $module    = basename(__DIR__);
 $namespace = "App\Modules\\{$module}\Controllers";
 
-
 Route::group(
 	[
 		"prefix"     => $prefix,
@@ -20,9 +19,13 @@ Route::group(
 			"uses" => "{$module}Controller@order",
 		]);
 
+		Route::get('test', [
+			"as"   => "test",
+			"uses" => "{$module}Controller@test",
+		]);
+
 	}
 );
-
 
 Route::get('addtocart/{prod_id}', 'App\Modules\Order\Controllers\CartController@addToCart')->name('product-addtocart')->middleware(['web']);
 
