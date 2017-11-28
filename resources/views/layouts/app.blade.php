@@ -73,7 +73,7 @@
                                 </ul>
                             </li>
                         @endif
-                        {{-- <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li> --}}
+                        <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                     </ul>
                 </div>
 
@@ -101,13 +101,16 @@
         </nav>
 
         @yield('content')
+        <div class="content footer">
+            <div class="links">
+                <a href="/product">Products</a>
+                <a href="/search">Search</a>
+                <a href="/about">About</a>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('script')

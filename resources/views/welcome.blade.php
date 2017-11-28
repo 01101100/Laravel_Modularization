@@ -90,7 +90,7 @@
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
                     @endif
-                    <a href="{{-- {{ route('cart') }} --}}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+                    <a href="{{route('cart')}}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
                 </div>
             @endif
 
@@ -108,9 +108,6 @@
         </div>
         <!-- Latest compiled and minified JavaScript -->
         <script src="js/bootstrap.min.js"></script>
-        <!-- Scripts -->
-        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
