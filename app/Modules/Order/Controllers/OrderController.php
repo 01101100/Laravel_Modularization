@@ -52,7 +52,8 @@ class OrderController extends Controller {
 		// dd($order);
 		$order->initState();
 		// dd($order->stateI);
-		$order->next();
-		$order->save();
+		// $order->next(1);
+		$order->cancel();
+		dd($order);
 	}
 }

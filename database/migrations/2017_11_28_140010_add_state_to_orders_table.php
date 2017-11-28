@@ -15,7 +15,7 @@ class AddStateToOrdersTable extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //
-            $table->integer('state')->default(-1);
+            $table->integer('state')->default(0);
         });
     }
 

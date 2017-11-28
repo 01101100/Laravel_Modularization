@@ -4,7 +4,7 @@ namespace App\Modules\Order\Models\States;
 
 use App\Modules\Order\Models\Order;
 
-class ReceiveState implements StateInterface {
+class ReceivedState implements StateInterface {
 
 	public function next(Order $order) {
 

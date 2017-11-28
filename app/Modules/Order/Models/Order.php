@@ -63,6 +63,7 @@ class Order extends Model {
 
 	public function cancel() {
 		$this->stateI->cancel($this);
+		$this->state = FAILED;
 	}
 
 }
