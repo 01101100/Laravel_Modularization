@@ -4,7 +4,7 @@
  * @Author: longdragon
  * @Date:   2017-11-19 02:33:40
  * @Last Modified by:   01101100
- * @Last Modified time: 2017-11-28 23:55:16
+ * @Last Modified time: 2017-11-29 00:13:16
  */
 namespace App\Modules\Order\Models;
 
@@ -48,6 +48,14 @@ class Order extends Model {
 			echo "default";
 			break;
 		}
+	}
+
+	public function next() {
+		$this->stateI->next($this);
+	}
+
+	public function cancel() {
+		$this->stateI->cancel($this);
 	}
 
 }
