@@ -2,9 +2,9 @@
 
 namespace App\Modules\Order\Models\States;
 
-use App\Modules\Order\Models;
+use App\Modules\Order\Models\Order;
 
-class FailedState implements State {
+class FailedState implements StateInterface {
 
 	public function next (Order $order) {
 		

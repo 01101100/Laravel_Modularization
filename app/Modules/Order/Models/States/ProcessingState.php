@@ -9,9 +9,9 @@
 
 namespace App\Modules\Order\Models\States;
 
-use App\Modules\Order\Models;
+use App\Modules\Order\Models\Order;
 
-class ProcessingState implements State {
+class ProcessingState implements StateInterface {
 
 	public function next(Order $order) {
 		$order->state = SHIPPING;
