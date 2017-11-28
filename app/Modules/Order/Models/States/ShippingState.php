@@ -16,4 +16,3 @@ class ShippingState implements StateInterface {
 		$order->setState(new FailedState());
 	}
 }
-?>

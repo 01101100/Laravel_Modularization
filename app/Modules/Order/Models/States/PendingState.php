@@ -16,4 +16,3 @@ class PendingState implements StateInterface {
 		$order->setState(new FailedState());
 	}
 }
-?>
