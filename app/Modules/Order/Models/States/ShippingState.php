@@ -2,7 +2,7 @@
 
 namespace App\Modules\Order\Models\States;
 
-use App\Modules\Order\Models;
+use App\Modules\Order\Models\Order;
 
 class ShippingState implements StateInterface {
 

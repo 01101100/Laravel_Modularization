@@ -4,7 +4,7 @@
  * @Author: longdragon
  * @Date:   2017-11-19 02:36:55
  * @Last Modified by:   01101100
- * @Last Modified time: 2017-11-29 00:19:14
+ * @Last Modified time: 2017-11-29 00:30:38
  */
 
 namespace App\Modules\Order\Controllers;
@@ -48,10 +48,11 @@ class OrderController extends Controller {
 
 	public function test() {
 		// $order = new Order();
-		// $order = Order::find(1);
+		$order = Order::find(1);
 		// dd($order);
-		// $order->initState();
+		$order->initState();
 		// dd($order->stateI);
-		// $order->next();
+		$order->next();
+		$order->save();
 	}
 }
