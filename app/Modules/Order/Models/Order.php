@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model {
 	protected $primaryKey = 'order_id';
+	protected $fillable = ['state'];
 
 	public function orderlines() {
 		return $this->hasMany('App\Modules\Order\Models\Orderline', 'order_id');
