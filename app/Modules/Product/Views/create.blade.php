@@ -16,7 +16,8 @@
 
 		<div class="form-group">
 			<label for="inputTitle">Category</label><br>
-			<select class="custom-select" name="category">
+			{{-- <select class="custom-select" name="category"> --}}
+			<select class="custom-select form-control" required>
 				<option selected>Open this select menu</option>
 				@foreach($categories as $category)
 				<option value="{{$category->category}}"> {{$category->category_name}}</option>
@@ -36,8 +37,12 @@
 			<input type="text" class="form-control" name="inputPrice" placeholder="Enter Price">
 		</div>
 		<div class="form-group">
-			<label for="inputPicture">Image</label>
+			<label for="inputPicture">Image</label><br>
 			<input type="file" class="form-control" name="input_img" id="inputPicture">
+			{{-- <label class="custom-file">
+				<input type="file" class="form-control" name="input_img">
+				<span class="custom-file-control"></span>
+			</label> --}}
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
