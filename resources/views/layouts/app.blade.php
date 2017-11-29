@@ -72,6 +72,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if(Auth::user()->role == 2)
+                                <li><a href="{{ route('Admin.index') }}"><span class="glyphicon glyphicon-star"></span>Admin</a></li>
+                            @endif
                         @endif
                         <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                     </ul>
@@ -104,8 +107,8 @@
         <div class="content footer">
             <div class="links">
                 <a href="/product">Products</a>
-                <a href="/search">Search</a>
-                <a href="/about">About</a>
+                <a href="#">Search</a>
+                <a href="#">About</a>
             </div>
         </div>
     </div>

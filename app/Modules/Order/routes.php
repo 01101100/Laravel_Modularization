@@ -24,6 +24,27 @@ Route::group(
 			"uses" => "{$module}Controller@test",
 		]);
 
+		Route::get('/next/{order_id}', [
+			"as"   => "{$module}.next",
+			"uses" => "{$module}Controller@next",
+		]);
+
+		Route::get('/cancel/{order_id}', [
+			"as"   => "{$module}.cancel",
+			"uses" => "{$module}Controller@cancel",
+		]);
+
+		Route::get('/reset/{order_id}', [
+			"as"   => "{$module}.reset",
+			"uses" => "{$module}Controller@reset",
+		]);
+
+		Route::get('/ordermanager', [
+			"middleware" => ['admin'],
+			"as"         => "{$module}.ordermanager",
+			"uses"       => "{$module}Controller@orderManager",
+		]);
+
 	}
 );
 

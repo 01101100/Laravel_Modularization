@@ -61,9 +61,19 @@ class Order extends Model {
 		}
 	}
 
-	public function cancel() {
+	public function cancel($flag = 0) {
 		$this->stateI->cancel($this);
 		$this->state = FAILED;
+		if ($flag != 0) {
+			$this->save();
+		}
+	}
+
+	public function reset($flag = 0) {
+		$this->state = PENDING;
+		if ($flag != 0) {
+			$this->save();
+		}
 	}
 
 }

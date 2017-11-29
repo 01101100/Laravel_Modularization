@@ -17,8 +17,7 @@ class AdminController extends Controller {
 	 * @param ProductRepositoryInterface $product [description]
 	 */
 	public function __construct(ProductRepositoryInterface $product) {
-		$this->productRepo = $product;
-	}
+		$this->productRepo = $product;	}
 
 	public function index() {
 		$products = $this->productRepo->getAll();
