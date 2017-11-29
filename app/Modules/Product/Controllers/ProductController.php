@@ -57,8 +57,26 @@ class ProductController extends Controller {
 		$title    = $request->input('inputTitle');
 		$actor    = $request->input('inputActor');
 		$price    = $request->input('inputPrice');
+		if ($request->hasFile('input_img')) {
+			try {
+				$file = $request->file('input_img');
+				$name = time().'.'.$file->getClientOriginalExtension();
+				$destinationPath = public_path('/img');
+				$file->move($destinationPath, $name);
+			} catch (Illuminate\Filesystem\FileNotFoundException $e) {
+			}
+			
+		} else {
+			dd($request);
+		}
 
-		$product = ['category' => $category, 'title' => $title, 'actor' => $actor, 'price' => $price];
+		$product = [
+			'category' => $category, 
+			'title' => $title, 
+			'actor' => $actor, 
+			'price' => $price, 
+			'img_name' => $name,
+		];
 
 		$result = $this->product->create($product);
 		return redirect('product/' . $result->prod_id);

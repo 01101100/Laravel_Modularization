@@ -11,7 +11,7 @@
 		    <div class="col-sm-6 col-md-4">
 		    	<div class="thumbnail">
 		    		<a href="{{ url('product/' . $prod->prod_id) }}">
-					<img src="http://keithmackay.com/images/picture.jpg" alt="default product image">
+					<img src="{{ asset('img/'. $prod->img_name) }}" alt="default product image">
 					</a>
 					<div class="caption">
 						<h3>{{ $prod->title }}</h3>

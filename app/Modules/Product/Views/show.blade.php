@@ -16,7 +16,7 @@
 				<div class="wrapper row">
 					<div class="preview col-md-6">
 
-						<div class="preview-pic tab-content">
+						{{-- <div class="preview-pic tab-content">
 						  <div class="tab-pane active" id="pic-1"><img src="" /></div>
 						  <div class="tab-pane" id="pic-2"><img src="" /></div>
 						  <div class="tab-pane" id="pic-3"><img src="" /></div>
@@ -29,7 +29,10 @@
 						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://keithmackay.com/images/picture.jpg" /></a></li>
 						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://keithmackay.com/images/picture.jpg" /></a></li>
 						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://keithmackay.com/images/picture.jpg" /></a></li>
-						</ul>
+						</ul> --}}
+						<a href="{{ url('product/' . $product->prod_id) }}">
+							<img src="{{ asset('img/'. $product->img_name) }}" alt="default product image">
+						</a>
 
 					</div>
 					<div class="details col-md-6">
