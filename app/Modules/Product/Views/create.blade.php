@@ -11,7 +11,7 @@
 @section('content')
 <div class="container" style="width: 500px; margin: auto">
 	<h3>Create a new Product:</h3><br>
-	<form method="POST" action="{{ route('product.store') }}">
+	<form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
 		{{ csrf_field() }}
 
 		<div class="form-group">
@@ -34,6 +34,10 @@
 		<div class="form-group">
 			<label for="inputPrice">Price</label>
 			<input type="text" class="form-control" name="inputPrice" placeholder="Enter Price">
+		</div>
+		<div class="form-group">
+			<label for="inputPicture">Image</label>
+			<input type="file" class="form-control" name="input_img" id="inputPicture">
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>

@@ -17,7 +17,12 @@
 		<div>
 			@foreach($product_cart as $item)
             <div class="row item-cart">
-				<div class="col-md-2"><img src="http://keithmackay.com/images/picture.jpg" alt="default product image" height="150px" width="150px"></div>
+				<div class="col-md-2">
+					{{-- <img src="http://keithmackay.com/images/picture.jpg" alt="default product image" height="150px" width="150px"> --}}
+					<a href="{{ url('product/' . $item['product']->prod_id) }}">
+						<img src="{{ asset('img/'. $item['product']->img_name) }}" alt="default product image">
+					</a>
+				</div>
 				<div class="col-md-6">
 					<div class="caption">
 						<h3>{{$item['product']['title']}}</h3>
