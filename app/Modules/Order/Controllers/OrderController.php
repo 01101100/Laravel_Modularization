@@ -53,7 +53,31 @@ class OrderController extends Controller {
 		$order->initState();
 		// dd($order->stateI);
 		// $order->next(1);
-		$order->cancel();
 		dd($order);
+	}
+
+	public function orderManager(){
+		$orders = $this->order->getAll();
+		return view('Order::orderManager', ['orders' => $orders]);
+	}
+
+	public function next($id){
+		$order = Order::find($id);
+		$order->initState();
+		$order->next(1);
+		return redirect()->back();
+	}
+
+	public function cancel($id){
+		$order = Order::find($id);
+		$order->initState();
+		$order->cancel(1);
+		return redirect()->back();
+	}
+
+	public function reset($id){
+		$order = Order::find($id);
+		$order->reset(1);
+		return redirect()->back();
 	}
 }

@@ -27,6 +27,7 @@
                 </li> --}}
                 <li ><a href="{{ route('Product.index') }}">Product management<span style="font-size:16px;" class="pull-right hidden-xs showopacity"><i class="fa fa-product-hunt" aria-hidden="true"></i></span></a></li>
                 <li ><a href="#">Statistic<span style="font-size:16px;" class="pull-right hidden-xs showopacity"><i class="fa fa-bar-chart" aria-hidden="true"></i></span></a></li>
+                <li ><a href="{{ route('Order.ordermanager') }}">Order management<span style="font-size:16px;" class="pull-right hidden-xs showopacity"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span></a></li>
             </ul>
         </div>
     </div>

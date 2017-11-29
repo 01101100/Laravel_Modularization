@@ -16,6 +16,13 @@ use App\Modules\Order\Models\States\ShippingState;
 use App\Modules\Order\Models\States\StateInterface;
 use Illuminate\Database\Eloquent\Model;
 
+define('UNKNOW', -1);
+define('PENDING', 0);
+define('PROCESSING', 1);
+define('SHIPPING', 2);
+define('RECEIVED', 3);
+define('FAILED', 4);
+
 class Order extends Model {
 	protected $primaryKey = 'order_id';
 	protected $stateI;
@@ -61,9 +68,19 @@ class Order extends Model {
 		}
 	}
 
-	public function cancel() {
+	public function cancel($flag = 0) {
 		$this->stateI->cancel($this);
 		$this->state = FAILED;
+		if ($flag != 0) {
+			$this->save();
+		}
+	}
+
+	public function reset($flag = 0) {
+		$this->state = PENDING;
+		if ($flag != 0) {
+			$this->save();
+		}
 	}
 
 }
