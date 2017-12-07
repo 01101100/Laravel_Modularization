@@ -17,7 +17,7 @@
 		<div class="form-group">
 			<label for="inputTitle">Category</label><br>
 			{{-- <select class="custom-select" name="category"> --}}
-			<select class="custom-select form-control" required>
+			<select class="custom-select form-control" required name="category">
 				<option selected>Open this select menu</option>
 				@foreach($categories as $category)
 				<option value="{{$category->category}}"> {{$category->category_name}}</option>
